@@ -5,10 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const logoutBtn = document.getElementById('logout-btn');
     const errorMessage = document.getElementById('error-message');
    
-    // Проверяем авторизацию при загрузке
     checkAuth();
    
-    // Обработчик входа
     loginBtn.addEventListener('click', async () => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -35,7 +33,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     });
    
-    // Обработчик выхода
     logoutBtn.addEventListener('click', async () => {
     try {
     const response = await fetch('/logout', {
@@ -54,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     });
    
-    // Проверка авторизации
     async function checkAuth() {
     try {
     const response = await fetch('/check-auth', {
@@ -74,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     }
    
-    // Показать ошибку
     function showError(message) {
     errorMessage.textContent = message;
     errorMessage.classList.remove('hidden');
